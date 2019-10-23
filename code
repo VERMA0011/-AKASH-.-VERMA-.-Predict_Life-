@@ -1,0 +1,27 @@
+install.packages("arules")
+install.packages("dplyr")
+install.packages("factoextra")
+install.packages("ggplot2")
+install.packages("cluster")
+install.packages("magrittr")
+
+library(ggplot2)
+library(cluster)
+library(magrittr)
+library(dplyr)
+library(arules)
+library(factoextra)
+getwd()
+setwd("/Users/akashverma/desktop")
+
+getwd()      
+data <-read.csv("Predict_Product_Life.csv")  #read .csv file
+data
+summary(data)
+View(data)
+# 70% to train and 30% to test
+set.seed(123) #reusability
+indices<- sample(nrow(data), 0.70 * nrow(data))
+train <- data[indices, ]
+test <- data[-indices, ]
+data
